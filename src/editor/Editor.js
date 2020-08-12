@@ -21,7 +21,8 @@ export default class Editor extends Component {
 	}
 
 	handleChange(event) {
-		this.setState({ value: event.target.value });
+        this.setState({ value: event.target.value });
+        this.updatePreview();
 	}
 
 	handleSelection() {
@@ -40,7 +41,8 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`**${window.getSelection().toString()}**`
 			),
-		});
+        });
+        this.updatePreview();
 	}
 
 	render() {
