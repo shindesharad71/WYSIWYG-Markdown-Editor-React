@@ -7,6 +7,7 @@
 	flex-wrap: wrap;
     border-top: 1px solid #000;
     height: calc(100vh - 90px);
+    overflow: hidden;
 }
 
 .editor {
@@ -15,7 +16,8 @@
 }
 
 textarea {
-	text-align: left;
+    text-align: left;
+    height: calc(100vh - 70px);
 	resize: none;
 	overflow: auto;
 	border: none;
@@ -37,5 +39,5 @@ textarea {
 	padding-left: 8px;
 	padding-top: 16px;
 	overflow-y: auto;
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
