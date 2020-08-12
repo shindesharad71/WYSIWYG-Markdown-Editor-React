@@ -22,7 +22,6 @@ export default class Editor extends Component {
 
 	handleChange(event) {
 		this.setState({ value: event.target.value });
-		this.updatePreview();
 	}
 
 	handleSelection() {
@@ -58,7 +57,8 @@ export default class Editor extends Component {
 							wrap="off"
 							value={this.state.value}
 							onChange={this.handleChange}
-							onMouseUp={this.handleSelection}
+                            onMouseUp={this.handleSelection}
+                            onKeyUp={this.updatePreview}
 						></textarea>
 					</div>
 					<div
