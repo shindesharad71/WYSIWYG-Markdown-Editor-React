@@ -28,6 +28,8 @@ export default class Editor extends Component {
 		this.setState({ htmlState: marked(this.state.value) });
 	}
 
+    // TODO: Make theme yellow Falcon site color.
+
 	makeBold() {
 		this.setState({
 			value: this.state.value.replace(
