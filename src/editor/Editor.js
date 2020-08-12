@@ -18,7 +18,6 @@ export default class Editor extends Component {
 	render() {
 		return (
 			<textarea
-				id="editor"
 				cols="100"
 				rows="20"
 				wrap="off"
