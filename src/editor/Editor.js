@@ -6,25 +6,28 @@ export default class Editor extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 'Are you winning son...?',
+			value: '_Are you **winning** son...?_',
 			htmlState: '',
-		};
+        };
+        
+        this.updatePreview();
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSelection = this.handleSelection.bind(this);
-		this.preview = this.preview.bind(this);
+		this.updatePreview = this.updatePreview.bind(this);
 		this.makeBold = this.makeBold.bind(this);
 	}
 
 	handleChange(event) {
-		this.setState({ value: event.target.value });
+        this.setState({ value: event.target.value });
+        this.updatePreview();
 	}
 
 	handleSelection() {
 		console.log(window.getSelection().toString());
 	}
 
-	preview() {
+	updatePreview() {
 		this.setState({ htmlState: marked(this.state.value) });
 	}
 
@@ -42,7 +45,6 @@ export default class Editor extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.preview}>Show Output</button>
 				<button onClick={this.makeBold}>bold</button>
 				<div class="container">
 					<textarea
