@@ -6,14 +6,19 @@ export default class Editor extends Component {
 		super(props);
 		this.state = {
 			value: 'Remember, be nice!',
-		};
+        };
 
-		this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSelection = this.handleSelection.bind(this);
 	}
 
 	handleChange(event) {
-		this.setState({ value: event.target.value });
-	}
+        this.setState({ value: event.target.value });
+    }
+
+    handleSelection() {
+        console.log(window.getSelection().toString());
+    }
 
 	render() {
 		return (
@@ -22,7 +27,8 @@ export default class Editor extends Component {
 				rows="20"
 				wrap="off"
 				value={this.state.value}
-				onChange={this.handleChange}
+                onChange={this.handleChange}
+                onMouseUp={this.handleSelection}
 			></textarea>
 		);
 	}
