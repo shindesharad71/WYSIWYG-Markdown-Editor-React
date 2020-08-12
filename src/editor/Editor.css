@@ -1,20 +1,43 @@
-textarea {
-	resize: none;
-    overflow: auto;
-    padding: 8px 16px;
-    box-sizing: border-box;
-    width: 50%;
-    border: none;
-    outline: none;
+.Editor {
+    text-align: left;
 }
 
 .container {
     display: flex;
-    padding: 32px;
     border: 1px solid #000;
+    box-sizing: border-box;
 }
 
-.output {
-    padding: 8px 16px;
-    border-left: 1px solid #000;
+.editor {
+    display: flex;
+    max-width: 50%;
+    border-right: 1px solid #000;
+}
+
+textarea {
+    text-align: left;
+	resize: none;
+    overflow: auto;
+    border: none;
+    outline: none;
+    padding-left: 8px;
+    padding-top: 16px;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 50%;
+}
+
+.toolbar {
+    border-bottom: 1px solid #000;
+}
+
+.preview {
+    max-width: 50%;
+    text-align: left;
+    padding-left: 8px;
+    padding-top: 16px;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

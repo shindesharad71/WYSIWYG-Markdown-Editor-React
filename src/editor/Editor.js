@@ -8,9 +8,7 @@ export default class Editor extends Component {
 		this.state = {
 			value: '_Are you **winning** son...?_',
 			htmlState: '',
-        };
-        
-        this.updatePreview();
+		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSelection = this.handleSelection.bind(this);
@@ -18,9 +16,13 @@ export default class Editor extends Component {
 		this.makeBold = this.makeBold.bind(this);
 	}
 
+	componentDidMount() {
+		this.updatePreview();
+	}
+
 	handleChange(event) {
-        this.setState({ value: event.target.value });
-        this.updatePreview();
+		this.setState({ value: event.target.value });
+		this.updatePreview();
 	}
 
 	handleSelection() {
@@ -45,18 +47,22 @@ export default class Editor extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.makeBold}>bold</button>
-				<div class="container">
-					<textarea
-						cols="100"
-						rows="20"
-						wrap="off"
-						value={this.state.value}
-						onChange={this.handleChange}
-						onMouseUp={this.handleSelection}
-					></textarea>
+				<div className="container">
+					<div className="editor">
+						<div className="toolbar">
+							<button onClick={this.makeBold}>bold</button>
+						</div>
+						<textarea
+							cols="100"
+							rows="20"
+							wrap="off"
+							value={this.state.value}
+							onChange={this.handleChange}
+							onMouseUp={this.handleSelection}
+						></textarea>
+					</div>
 					<div
-						class="output"
+						className="preview"
 						dangerouslySetInnerHTML={{
 							__html: this.state.htmlState,
 						}}
