@@ -57,9 +57,9 @@ export default class Editor extends Component {
                             <button onClick={this.makeBold}>bold</button>
 						</div>
 						<textarea
-							cols="100"
+							cols="80"
 							rows="20"
-							wrap="off"
+							wrap="hard"
 							value={this.state.value}
 							onChange={this.handleChange}
                             onMouseUp={this.handleSelection}

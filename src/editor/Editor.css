@@ -1,42 +1,41 @@
 .Editor {
-    text-align: left;
+	text-align: left;
 }
 
 .container {
-    display: flex;
+	display: flex;
+	flex-wrap: wrap;
     border-top: 1px solid #000;
-    box-sizing: border-box;
+    height: calc(100vh - 90px);
 }
 
 .editor {
-    max-width: 50%;
-    border-right: 1px solid #000;
+	flex: 1;
+	border-right: 1px solid #000;
 }
 
 textarea {
-    text-align: left;
+	text-align: left;
 	resize: none;
-    overflow: auto;
-    border: none;
-    outline: none;
-    padding-left: 8px;
-    padding-top: 16px;
-    height: 500px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 50%;
+	overflow: auto;
+	border: none;
+	outline: none;
+	padding-left: 8px;
+	padding-top: 16px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .toolbar {
-    border-bottom: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 
 .preview {
-    max-width: 50%;
+	flex: 1;
     text-align: left;
-    padding-left: 8px;
-    padding-top: 16px;
-    height: 500px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    word-break: break-word;
+	padding-left: 8px;
+	padding-top: 16px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
