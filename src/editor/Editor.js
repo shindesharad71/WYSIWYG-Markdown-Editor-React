@@ -6,8 +6,8 @@ export default class Editor extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 'Remember, be nice!',
-			htmlState: '<p>Abc</p>',
+			value: 'Are you winning son...?',
+			htmlState: '',
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -28,7 +28,7 @@ export default class Editor extends Component {
 		this.setState({ htmlState: marked(this.state.value) });
 	}
 
-    // TODO: Make theme yellow Falcon site color.
+	// TODO: Make theme yellow Falcon site color.
 
 	makeBold() {
 		this.setState({
@@ -44,17 +44,22 @@ export default class Editor extends Component {
 			<div>
 				<button onClick={this.preview}>Show Output</button>
 				<button onClick={this.makeBold}>bold</button>
-				<div
-					dangerouslySetInnerHTML={{ __html: this.state.htmlState }}
-				></div>
-				<textarea
-					cols="100"
-					rows="20"
-					wrap="off"
-					value={this.state.value}
-					onChange={this.handleChange}
-					onMouseUp={this.handleSelection}
-				></textarea>
+				<div class="container">
+					<textarea
+						cols="100"
+						rows="20"
+						wrap="off"
+						value={this.state.value}
+						onChange={this.handleChange}
+						onMouseUp={this.handleSelection}
+					></textarea>
+					<div
+						class="output"
+						dangerouslySetInnerHTML={{
+							__html: this.state.htmlState,
+						}}
+					></div>
+				</div>
 			</div>
 		);
 	}

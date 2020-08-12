@@ -3,4 +3,16 @@ textarea {
     overflow: auto;
     padding: 8px 16px;
     box-sizing: border-box;
+    width: 50%;
+    border: none;
+}
+
+.container {
+    display: flex;
+    padding: 32px;
+    border: 1px solid #000;
+}
+
+.output {
+    border-left: 1px solid #000;
 }
