@@ -4,12 +4,11 @@
 
 .container {
     display: flex;
-    border: 1px solid #000;
+    border-top: 1px solid #000;
     box-sizing: border-box;
 }
 
 .editor {
-    display: flex;
     max-width: 50%;
     border-right: 1px solid #000;
 }

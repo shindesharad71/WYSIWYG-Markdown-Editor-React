@@ -49,7 +49,12 @@ export default class Editor extends Component {
 				<div className="container">
 					<div className="editor">
 						<div className="toolbar">
-							<button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>bold</button>
 						</div>
 						<textarea
 							cols="100"
