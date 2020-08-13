@@ -5,9 +5,9 @@
 .container {
 	display: flex;
 	flex-wrap: wrap;
-    border-top: 1px solid #000;
-    height: calc(100vh - 90px);
-    overflow: hidden;
+	border-top: 1px solid #000;
+	height: calc(100vh - 90px);
+	overflow: hidden;
 }
 
 .editor {
@@ -16,8 +16,8 @@
 }
 
 textarea {
-    text-align: left;
-    height: calc(100vh - 70px);
+	text-align: left;
+	height: calc(100vh - 70px);
 	resize: none;
 	overflow: auto;
 	border: none;
@@ -34,13 +34,13 @@ textarea {
 
 .preview {
 	flex: 1;
-    text-align: left;
-    word-break: break-word;
+	text-align: left;
+	word-break: break-word;
 	padding-left: 8px;
 	padding-top: 16px;
 	overflow-y: auto;
-    overflow-x: hidden;
-    height: calc(100vh - 70px);
+	overflow-x: hidden;
+	height: calc(100vh - 70px);
 }
 
 blockquote {
@@ -48,16 +48,38 @@ blockquote {
 	border-left: 10px solid #ccc;
 	margin: 1.5em 10px;
 	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
-  }
-  blockquote:before {
+	quotes: '\201C''\201D''\2018''\2019';
+}
+
+blockquote:before {
 	color: #ccc;
 	content: open-quote;
 	font-size: 4em;
 	line-height: 0.1em;
 	margin-right: 0.25em;
 	vertical-align: -0.4em;
-  }
-  blockquote p {
+}
+
+blockquote p {
 	display: inline;
-  }
+}
+
+.btn-group button {
+	padding: 8px 16px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group button:not(:last-child) {
+	border-right: none;
+}
+
+.btn-group:after {
+	content: '';
+	clear: both;
+	display: table;
+}
+
+.btn-group button:hover {
+	background-color: #ccc;
+}

@@ -143,7 +143,7 @@ export default class Editor extends Component {
 			<div>
 				<div className="container">
 					<div className="editor">
-						<div className="toolbar">
+						<div className="toolbar btn-group">
 							<button onClick={this.makeBold}>B</button>
 							<button onClick={this.makeItalic}>I</button>
 							<button onClick={this.makeUnderline}>U</button>
