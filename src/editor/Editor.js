@@ -130,10 +130,16 @@ export default class Editor extends Component {
 	}
 
 	makeCaps() {
+		let capsCase = '';
+		window.getSelection().toString().split(' ').forEach(word => {
+			const camelCaseWord = word.charAt(0).toUpperCase() + word.slice(1);
+			capsCase = capsCase.length ? `${capsCase} ${camelCaseWord}` : camelCaseWord;
+		});
+
 		this.setState({
 			value: this.state.value.replace(
 				window.getSelection().toString(),
-				`${window.getSelection().toString().toLowerCase()}`
+				capsCase
 			),
 		});
 	}
