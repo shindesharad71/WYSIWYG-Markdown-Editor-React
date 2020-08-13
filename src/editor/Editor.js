@@ -159,8 +159,6 @@ export default class Editor extends Component {
 		});
 	}
 
-	// TODO: Make theme yellow Falcon site color.
-
 	render() {
 		return (
 			<div>
