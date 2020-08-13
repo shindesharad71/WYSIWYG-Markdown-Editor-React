@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d7597975d69b5c8f7fcee52277f253d7",
+    "revision": "05e3ca428c41dfcbb1c666054a952701",
     "url": "/WYSIWYG-Markdown-Editor-React/index.html"
   },
   {
-    "revision": "d7537865a32494f7124b",
+    "revision": "d2054344bc208c734c89",
     "url": "/WYSIWYG-Markdown-Editor-React/static/css/main.d7ce442b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WYSIWYG-Markdown-Editor-React/static/js/2.12fa3482.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d7537865a32494f7124b",
-    "url": "/WYSIWYG-Markdown-Editor-React/static/js/main.dbd41dc6.chunk.js"
+    "revision": "d2054344bc208c734c89",
+    "url": "/WYSIWYG-Markdown-Editor-React/static/js/main.2269264f.chunk.js"
   },
   {
     "revision": "0b6e3720ea2175048819",
