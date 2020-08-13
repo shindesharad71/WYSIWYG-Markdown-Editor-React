@@ -13,7 +13,13 @@ export default class Editor extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSelection = this.handleSelection.bind(this);
 		this.updatePreview = this.updatePreview.bind(this);
+		
 		this.makeBold = this.makeBold.bind(this);
+		this.makeItalic = this.makeItalic.bind(this);
+		this.makeUnderline = this.makeUnderline.bind(this);
+		this.makeH1 = this.makeH1.bind(this);
+		this.makeH2 = this.makeH2.bind(this);
+		this.makeH3 = this.makeH3.bind(this);
 	}
 
 	componentDidMount() {
@@ -30,12 +36,33 @@ export default class Editor extends Component {
 	}
 
 	updatePreview() {
-		this.setState({ htmlState: marked(this.state.value) });
+		const htmlState = marked(this.state.value);
+		this.setState({ htmlState });
 	}
 
 	// TODO: Make theme yellow Falcon site color.
 
 	makeBold() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`**${window.getSelection().toString()}**`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeItalic() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`**${window.getSelection().toString()}**`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeUnderline() {
 		this.setState({
 			value: this.state.value.replace(
 				window.getSelection().toString(),
@@ -52,15 +79,15 @@ export default class Editor extends Component {
 					<div className="editor">
 						<div className="toolbar">
                             <button onClick={this.makeBold}>B</button>
-                            <button onClick={this.makeBold}>I</button>
-                            <button onClick={this.makeBold}>U</button>
-                            <button onClick={this.makeBold}>H1</button>
-                            <button onClick={this.makeBold}>H2</button>
-							<button onClick={this.makeBold}>H3</button>
-							<button onClick={this.makeBold}>quote</button>
-							<button onClick={this.makeBold}>Caps</button>
-							<button onClick={this.makeBold}>Upper</button>
-							<button onClick={this.makeBold}>lower</button>
+                            <button onClick={this.makeItalic}>I</button>
+                            <button onClick={this.makeUnderline}>U</button>
+                            <button onClick={this.makeH1}>H1</button>
+                            <button onClick={this.makeH2}>H2</button>
+							<button onClick={this.makeH3}>H3</button>
+							<button onClick={this.makeQuote}>quote</button>
+							<button onClick={this.makeCaps}>Caps</button>
+							<button onClick={this.makeUpper}>Upper</button>
+							<button onClick={this.makeLower}>lower</button>
 
 						</div>
 						<textarea
