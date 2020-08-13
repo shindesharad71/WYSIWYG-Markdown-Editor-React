@@ -11,7 +11,6 @@ export default class Editor extends Component {
 		};
 
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSelection = this.handleSelection.bind(this);
 		this.updatePreview = this.updatePreview.bind(this);
 
 		this.makeBold = this.makeBold.bind(this);
@@ -32,6 +31,10 @@ export default class Editor extends Component {
 		this.updatePreview();
 	}
 
+	componentDidUpdate() {
+		this.updatePreview();
+	}
+
 	handleChange(event) {
 		this.setState({
 			value: event.target.value,
@@ -39,13 +42,11 @@ export default class Editor extends Component {
 		});
 	}
 
-	handleSelection() {
-		console.log(window.getSelection().toString());
-	}
-
 	updatePreview() {
-		const htmlState = marked(this.state.value);
-		this.setState({ htmlState });
+		setTimeout(() => {
+			const htmlState = marked(this.state.value);
+			this.setState({ htmlState });
+		}, 10);
 	}
 
 	makeBold() {
@@ -132,7 +133,7 @@ export default class Editor extends Component {
 	makeCaps() {
 		let capsCase = '';
 		window.getSelection().toString().split(' ').forEach(word => {
-			const camelCaseWord = word.charAt(0).toUpperCase() + word.slice(1);
+			const camelCaseWord = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 			capsCase = capsCase.length ? `${capsCase} ${camelCaseWord}` : camelCaseWord;
 		});
 
@@ -184,7 +185,6 @@ export default class Editor extends Component {
 							wrap="hard"
 							value={this.state.value}
 							onChange={this.handleChange}
-							onMouseUp={this.handleSelection}
 							onKeyUp={this.updatePreview}
 						></textarea>
 					</div>
