@@ -13,7 +13,7 @@ export default class Editor extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSelection = this.handleSelection.bind(this);
 		this.updatePreview = this.updatePreview.bind(this);
-		
+
 		this.makeBold = this.makeBold.bind(this);
 		this.makeItalic = this.makeItalic.bind(this);
 		this.makeUnderline = this.makeUnderline.bind(this);
@@ -31,8 +31,10 @@ export default class Editor extends Component {
 	}
 
 	handleChange(event) {
-        this.setState({ value: event.target.value });
-        this.updatePreview();
+		this.setState({
+			value: event.target.value,
+			htmlState: marked(this.state.value),
+		});
 	}
 
 	handleSelection() {
@@ -44,16 +46,13 @@ export default class Editor extends Component {
 		this.setState({ htmlState });
 	}
 
-	// TODO: Make theme yellow Falcon site color.
-
 	makeBold() {
 		this.setState({
 			value: this.state.value.replace(
 				window.getSelection().toString(),
 				`**${window.getSelection().toString()}**`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeItalic() {
@@ -62,8 +61,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`_${window.getSelection().toString()}_`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeUnderline() {
@@ -72,8 +70,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`<u>${window.getSelection().toString()}</u>`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeH1() {
@@ -82,8 +79,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`# ${window.getSelection().toString()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeH2() {
@@ -92,8 +88,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`## ${window.getSelection().toString()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeH3() {
@@ -102,8 +97,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`### ${window.getSelection().toString()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeQuote() {
@@ -112,8 +106,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`> ${window.getSelection().toString()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeUpper() {
@@ -122,8 +115,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`${window.getSelection().toString().toUpperCase()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeLower() {
@@ -132,8 +124,7 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`${window.getSelection().toString().toLowerCase()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
 
 	makeCaps() {
@@ -142,9 +133,10 @@ export default class Editor extends Component {
 				window.getSelection().toString(),
 				`${window.getSelection().toString().toLowerCase()}`
 			),
-        });
-        this.updatePreview();
+		});
 	}
+
+	// TODO: Make theme yellow Falcon site color.
 
 	render() {
 		return (
@@ -152,17 +144,16 @@ export default class Editor extends Component {
 				<div className="container">
 					<div className="editor">
 						<div className="toolbar">
-                            <button onClick={this.makeBold}>B</button>
-                            <button onClick={this.makeItalic}>I</button>
-                            <button onClick={this.makeUnderline}>U</button>
-                            <button onClick={this.makeH1}>H1</button>
-                            <button onClick={this.makeH2}>H2</button>
+							<button onClick={this.makeBold}>B</button>
+							<button onClick={this.makeItalic}>I</button>
+							<button onClick={this.makeUnderline}>U</button>
+							<button onClick={this.makeH1}>H1</button>
+							<button onClick={this.makeH2}>H2</button>
 							<button onClick={this.makeH3}>H3</button>
 							<button onClick={this.makeQuote}>quote</button>
 							<button onClick={this.makeCaps}>Caps</button>
 							<button onClick={this.makeUpper}>Upper</button>
 							<button onClick={this.makeLower}>lower</button>
-
 						</div>
 						<textarea
 							cols="80"
@@ -170,8 +161,8 @@ export default class Editor extends Component {
 							wrap="hard"
 							value={this.state.value}
 							onChange={this.handleChange}
-                            onMouseUp={this.handleSelection}
-                            onKeyUp={this.updatePreview}
+							onMouseUp={this.handleSelection}
+							onKeyUp={this.updatePreview}
 						></textarea>
 					</div>
 					<div
