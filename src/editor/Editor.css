@@ -75,6 +75,7 @@ blockquote p {
 
 .btn-group button:not(:last-child) {
 	border-right: none;
+	margin-right: 0.7px;
 }
 
 .btn-group:after {

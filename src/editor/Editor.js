@@ -170,7 +170,7 @@ export default class Editor extends Component {
 							<button onClick={this.makeQuote}>quote</button>
 							<button onClick={this.makeCaps}>Caps</button>
 							<button onClick={this.makeUpper}>Upper</button>
-							<button onClick={this.makeLower}>lower</button>
+							<button onClick={this.makeLower}>Lower</button>
 							<button onClick={this.makeHr}>---</button>
 							<button onClick={this.codeBlock}>code</button>
 						</div>
