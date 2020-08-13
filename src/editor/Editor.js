@@ -51,12 +51,17 @@ export default class Editor extends Component {
 				<div className="container">
 					<div className="editor">
 						<div className="toolbar">
-                            <button onClick={this.makeBold}>bold</button>
-                            <button onClick={this.makeBold}>bold</button>
-                            <button onClick={this.makeBold}>bold</button>
-                            <button onClick={this.makeBold}>bold</button>
-                            <button onClick={this.makeBold}>bold</button>
-                            <button onClick={this.makeBold}>bold</button>
+                            <button onClick={this.makeBold}>B</button>
+                            <button onClick={this.makeBold}>I</button>
+                            <button onClick={this.makeBold}>U</button>
+                            <button onClick={this.makeBold}>H1</button>
+                            <button onClick={this.makeBold}>H2</button>
+							<button onClick={this.makeBold}>H3</button>
+							<button onClick={this.makeBold}>quote</button>
+							<button onClick={this.makeBold}>Caps</button>
+							<button onClick={this.makeBold}>Upper</button>
+							<button onClick={this.makeBold}>lower</button>
+
 						</div>
 						<textarea
 							cols="80"
