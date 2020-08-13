@@ -24,6 +24,8 @@ export default class Editor extends Component {
 		this.makeCaps = this.makeCaps.bind(this);
 		this.makeUpper = this.makeUpper.bind(this);
 		this.makeLower = this.makeLower.bind(this);
+		this.makeHr = this.makeHr.bind(this);
+		this.codeBlock = this.codeBlock.bind(this);
 	}
 
 	componentDidMount() {
@@ -136,6 +138,21 @@ export default class Editor extends Component {
 		});
 	}
 
+	makeHr() {
+		this.setState({
+			value: `${this.state.value}  ___`
+		});
+	}
+
+	codeBlock() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`${"```" + window.getSelection().toString() + "```"}`
+			),
+		});
+	}
+
 	// TODO: Make theme yellow Falcon site color.
 
 	render() {
@@ -154,6 +171,8 @@ export default class Editor extends Component {
 							<button onClick={this.makeCaps}>Caps</button>
 							<button onClick={this.makeUpper}>Upper</button>
 							<button onClick={this.makeLower}>lower</button>
+							<button onClick={this.makeHr}>---</button>
+							<button onClick={this.codeBlock}>code</button>
 						</div>
 						<textarea
 							cols="80"
