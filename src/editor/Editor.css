@@ -6,6 +6,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
 	height: calc(100vh - 90px);
 	overflow: hidden;
 }
@@ -67,7 +68,9 @@ blockquote p {
 .btn-group button {
 	padding: 8px 16px;
     cursor: pointer;
-    float: left;
+	float: left;
+	border-bottom: none;
+	border-top: none;
 }
 
 .btn-group button:not(:last-child) {
