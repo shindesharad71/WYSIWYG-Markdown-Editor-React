@@ -6,7 +6,7 @@ export default class Editor extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: '_Are you **winning** son...?_',
+			value: '> # Do something awesome today...!',
 			htmlState: '',
 		};
 
