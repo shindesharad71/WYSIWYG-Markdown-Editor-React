@@ -20,6 +20,10 @@ export default class Editor extends Component {
 		this.makeH1 = this.makeH1.bind(this);
 		this.makeH2 = this.makeH2.bind(this);
 		this.makeH3 = this.makeH3.bind(this);
+		this.makeQuote = this.makeQuote.bind(this);
+		this.makeCaps = this.makeCaps.bind(this);
+		this.makeUpper = this.makeUpper.bind(this);
+		this.makeLower = this.makeLower.bind(this);
 	}
 
 	componentDidMount() {
@@ -56,7 +60,7 @@ export default class Editor extends Component {
 		this.setState({
 			value: this.state.value.replace(
 				window.getSelection().toString(),
-				`**${window.getSelection().toString()}**`
+				`_${window.getSelection().toString()}_`
 			),
         });
         this.updatePreview();
@@ -66,7 +70,77 @@ export default class Editor extends Component {
 		this.setState({
 			value: this.state.value.replace(
 				window.getSelection().toString(),
-				`**${window.getSelection().toString()}**`
+				`<u>${window.getSelection().toString()}</u>`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeH1() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`# ${window.getSelection().toString()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeH2() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`## ${window.getSelection().toString()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeH3() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`### ${window.getSelection().toString()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeQuote() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`> ${window.getSelection().toString()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeUpper() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`${window.getSelection().toString().toUpperCase()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeLower() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`${window.getSelection().toString().toLowerCase()}`
+			),
+        });
+        this.updatePreview();
+	}
+
+	makeCaps() {
+		this.setState({
+			value: this.state.value.replace(
+				window.getSelection().toString(),
+				`${window.getSelection().toString().toLowerCase()}`
 			),
         });
         this.updatePreview();
